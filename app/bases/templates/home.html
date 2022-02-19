@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+
+{% block content %}
+    <div class="features">
+        <h1>Наши рецепты:</h1>
+    </div>
+
+    <div class="features">
+        <table id="myTable">
+          <tr class="header">
+            <th style="width:30%;">Рецепт</th>
+            <th style="width:35%;">Ингредиенты</th>
+            <th style="width:35%;">Описание</th>
+          </tr>
+          {% for recipe in recipes %}
+            <tr>
+                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.ingredients.all|join:", " }}</td>
+                <td>{{ recipe.description }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
