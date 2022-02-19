@@ -18,7 +18,7 @@ python manage.py ruserver
 ```bash
 python manage.py migrate
 ```
-
+docker-compose exec app bash
 #### Создание суперпользователя
 
 ```bash

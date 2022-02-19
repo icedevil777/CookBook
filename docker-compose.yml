@@ -1,31 +1,58 @@
-version: '3.7'
-
+version: "3.9"
 services:
-
-  # The application
-  app:
-    build:
-      context: .
-    image: &app app
-    ports:
-      - 8000:8000
-    volumes:
-      - ./app:/app
-    env_file:
-      - .env.dev
+  cook_book:
+    build: .
     command: >
       sh -c "
+        cd app &&
         python manage.py migrate &&
         python manage.py runserver 0.0.0.0:8000"
-    links:
-      - db
+    volumes:
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
     depends_on:
       - db
-
-  # Database
   db:
-    image: postgres:14.0-alpine
+    image: postgres
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_USER=test_user
-      - POSTGRES_PASSWORD=test_pass
-      - POSTGRES_DB=app_db
+      - POSTGRES_DB=cookbook_db
+      - POSTGRES_USER=hello_django
+      - POSTGRES_PASSWORD=hello_django
+
+
+
+
+#version: '3.9'
+#services:
+#  # The application
+#  app:
+#    build:
+#      context: .
+#    image: &app app
+#    ports:
+#      - 8000:8000
+#    volumes:
+#      - ./app:/app
+#    env_file:
+#      - .env
+#    command: >
+#      sh -c "
+#        python manage.py migrate &&
+#        python manage.py runserver 0.0.0.0:8000"
+#    links:
+#      - db
+#    depends_on:
+#      - db
+#
+#  # Database
+#  db:
+#    image: postgres:14.0-alpine
+#    environment:
+#      - POSTGRES_USER=test_user
+#      - POSTGRES_PASSWORD=test_pass
+#      - POSTGRES_DB=app_db
