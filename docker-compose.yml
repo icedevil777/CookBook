@@ -5,7 +5,10 @@ services:
     command: >
       sh -c "
         cd app &&
+        python manage.py makemigrations &&
         python manage.py migrate &&
+        python manage.py loaddata name ingredients &&
+        sleep 5 &&
         python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/app
