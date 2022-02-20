@@ -19,6 +19,11 @@ docker-compose stop
 docker rm $(docker ps -a -q)
 docker rmi $(docker images -q)
 ```
+#### Кроме того рекомендуется проверить свободен ли порт:
+```bash
+sudo lsof -i :5432
+sudo kill <pid>
+```
 ### Запуск проекта:
 #### Запуская проект в системе Linux не стоит забывать про sudo!
 ```bash
@@ -28,6 +33,7 @@ docker-compose up --build
 ```bash
 docker-compose up -d --build 
 ```
+#### Если проект не запустился с первого раза, необходимо повторить "up"
 #### При повторном запуске флаг --build можно опустить.
 #### Команда для входа в контейнер:
 ```bash
