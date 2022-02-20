@@ -3,19 +3,20 @@
 
 {% block content %}
     <div class="features">
-        <h1>Наши рецепты:</h1>
+        <h1>Наши рецепты</h1>
     </div>
-
+    <input class="myInput" type="text" id="myInput1" onkeyup="name_filter()" placeholder="Поиск по названию.." title="Введите название">
+    <input class="myInput" type="text" id="myInput2" onkeyup="ingredient_filter()" placeholder="Поиск по ингредиенту.." title="Введите ингредиент">
     <div class="features">
         <table id="myTable">
           <tr class="header">
-            <th style="width:30%;">Рецепт</th>
-            <th style="width:35%;">Ингредиенты</th>
-            <th style="width:35%;">Описание</th>
+            <th style="width:12%;"><p class="hat">Рецепт</p></th>
+            <th style="width:15%;"><p class="hat">Ингредиенты</p></th>
+            <th style="width:35%;"><p class="hat">Описание</p></th>
           </tr>
             {% for recipe in recipes %}
             <tr>
-                <td>{{ recipe.name }}</td>
+                <td>{{ recipe.name }}<br></td>
                 <td>{{ recipe.ingredients.all|join:", " }}</td>
                 <td>{{ recipe.description }}</td>
             </tr>
