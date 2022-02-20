@@ -13,7 +13,7 @@
             <th style="width:35%;">Ингредиенты</th>
             <th style="width:35%;">Описание</th>
           </tr>
-          {% for recipe in recipes %}
+            {% for recipe in recipes %}
             <tr>
                 <td>{{ recipe.name }}</td>
                 <td>{{ recipe.ingredients.all|join:", " }}</td>
