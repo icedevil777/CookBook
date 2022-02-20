@@ -51,5 +51,7 @@ exit
 docker-compose down
 ```
 
-## Проект доступен по адресу http://0.0.0.0:8000
+### Проект доступен по адресу: http://0.0.0.0:8000
+###### Дизайн как у программы PyCharm =))
 
+![](app/bases/static/main/img/main.png)
