@@ -7,7 +7,7 @@ aside{
     background: #181818;
     width: 20%;
     padding: 2.5%;
-    height: 100vh;
+    height: 200vh;
     color: #fff;
     border-right: 7px solid #4d4d4d;
 
@@ -28,13 +28,13 @@ aside img {
 
 aside h3{
     margin-top: 120%;
-    margin-left: 10%;
+    margin-left: 5%;
     font-size: 200%;
 }
 
 aside ul {
     list-style: none;
-    margin-left: 15px;
+    margin-left: 1%;
     font-size: 140%;
 }
 
