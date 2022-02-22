@@ -11,14 +11,11 @@ cp .env.dist .env
 
 
 #### Перед стартом РЕКОМЕНДУЕТСЯ остановить все контейнеры
-#### Во избежание конфликтов рекомендуется остановить, удалить все Docker-контейнеры
-#### А при необходимости и все Docker-образы
-#### Команды выполняются внутри корневой папки проекта "CookBook"
+
 ```bash
 docker-compose stop
-docker rm $(docker ps -a -q)
-docker rmi $(docker images -q)
 ```
+
 #### Кроме того рекомендуется проверить свободен ли порт:
 ```bash
 sudo lsof -i :5432
@@ -61,3 +58,12 @@ docker-compose down
 ###### Дизайн как у программы PyCharm =))
 
 ![](app/bases/static/main/img/main.png)
+
+#### Что бы удалить все Docker-контейнеры
+#### А при необходимости и все Docker-образы
+#### Команды выполняются внутри корневой папки проекта "CookBook"
+```bash
+docker-compose stop
+docker rm $(docker ps -a -q)
+docker rmi $(docker images -q)
+```
